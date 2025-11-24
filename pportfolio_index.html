@@ -168,35 +168,22 @@
   </div>
 
   <script>
-    // Attach event listeners after DOM is ready to prevent "downloadCv is not defined" errors
-    document.addEventListener('DOMContentLoaded', function(){
-      const btn = document.getElementById('download-cv-btn');
-      if(!btn) return;
+  document.addEventListener('DOMContentLoaded', function(){
+    const btn = document.getElementById('download-cv-btn');
+    if (!btn) return;
 
-      // Replace this URL with your actual PDF file hosted online or a relative path to a PDF in the same repo.
-      // Examples:
-      // - Hosted online: 'https://example.com/Heidy_CV.pdf'
-      // - Relative path in same repo: 'Heidy_Rivera_CV.pdf' (if you added the file to your GitHub repo)
-      const demoUrl = 'https://example.com/Heidy_CV.pdf';
+    // Ruta al PDF dentro del mismo repositorio
+    const cvUrl = 'Heidy_Rivera_CV.pdf';
 
-      function downloadCv(){
-        // If the demo url is still the placeholder, show helpful instructions
-        if(demoUrl.includes('example.com')){
-          // Show a friendly message explaining how to set up the download
-          alert('To enable the "Download CV" button, upload your CV to your GitHub repository or another host, then replace the demo URL inside the index.html file with the real URL or a relative path to the PDF.');
-          return;
-        }
+    function downloadCv(){
+      window.open(cvUrl, '_blank');
+    }
 
-        // Open the CV in a new tab (or trigger a download depending on server headers)
-        window.open(demoUrl, '_blank');
-      }
-
-      // Use a safe click handler instead of inline onclick attribute
-      btn.addEventListener('click', function(ev){
-        ev.preventDefault();
-        downloadCv();
-      });
+    btn.addEventListener('click', function(ev){
+      ev.preventDefault();
+      downloadCv();
     });
-  </script>
+  });
+</script>
 </body>
 </html>
