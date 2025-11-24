@@ -138,7 +138,7 @@
           <div style="margin-top:12px">
             <!-- Replace href with link to your PDF CV if you have one -->
             <!-- Use id instead of inline onclick to avoid "function not defined" errors -->
-            <a id="download-cv-btn" class="btn btn-primary download" href="#">Download CV (PDF)</a>
+            <a class="btn btn-primary download" href="HEIDY RIVERA .pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
           </div>
         </div>
 
@@ -167,23 +167,6 @@
     </footer>
   </div>
 
- <script>
-  document.addEventListener('DOMContentLoaded', function(){
-    const btn = document.getElementById('download-cv-btn');
-    if (!btn) return;
-
-    // Ruta al PDF dentro del mismo repositorio
-    const cvUrl = 'HEIDY RIVERA .pdf';
-
-    function downloadCv(){
-      window.open(cvUrl, '_blank');
-    }
-
-    btn.addEventListener('click', function(ev){
-      ev.preventDefault();
-      downloadCv();
-    });
-  });
-</script>
+ 
 </body>
 </html>
