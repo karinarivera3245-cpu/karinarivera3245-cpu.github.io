@@ -1,0 +1,202 @@
+<!--
+  Professional Portfolio - index.html
+  ----------------------------------
+  - This single-file HTML portfolio / resume is editable.
+  - How to use:
+    1) Save this file as `index.html` on your computer.
+    2) Open it in your browser (double-click it) to preview locally.
+    3) Edit the text between <!-- EDIT ME --> comments to add your personal info.
+    4) To publish online, see the quick GitHub Pages steps in the original instructions.
+
+  Notes:
+    - The file uses responsive CSS and a simple layout. No external libraries required.
+    - The download CV button is wired using a safe click handler that is attached after the DOM loads
+      to prevent "downloadCv is not defined" errors when the page is parsed.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Heidy Karina — Professional Portfolio</title>
+  <meta name="description" content="Professional portfolio and CV" />
+
+  <style>
+    /* Simple, modern responsive CSS */
+    :root{
+      --bg:#f7f8fb; --card:#ffffff; --muted:#6b7280; --accent:#2563eb; --radius:12px;
+      --maxw:900px; --gap:20px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:#111827}
+    .container{max-width:var(--maxw); margin:36px auto; padding:28px}
+
+    header{display:flex; gap:18px; align-items:center}
+    .avatar{width:96px; height:96px; border-radius:14px; background:linear-gradient(135deg,var(--accent),#7c3aed); display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:28px}
+    h1{margin:0;font-size:22px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    .grid{display:grid; grid-template-columns:1fr 320px; gap:var(--gap); margin-top:22px}
+    @media (max-width:880px){.grid{grid-template-columns:1fr} .avatar{width:80px;height:80px}}
+
+    .card{background:var(--card); border-radius:var(--radius); padding:18px; box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    .section{margin-bottom:16px}
+    .section h2{font-size:16px;margin:0 0 10px}
+    .meta{color:var(--muted); font-size:14px}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:#eef2ff;color:#3730a3;padding:6px 10px;border-radius:999px;font-size:13px}
+
+    .experience{display:flex;flex-direction:column;gap:12px}
+    .exp-item{padding:12px;border-radius:10px;background:#fbfdff;border:1px solid #eef2ff}
+    .exp-item h3{margin:0;font-size:15px}
+    .exp-meta{font-size:13px;color:var(--muted);margin-top:4px}
+    .exp-desc{margin-top:8px;font-size:14px;color:#111827}
+
+    .contact-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+    .contact-list li{font-size:14px;color:var(--muted)}
+
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn-primary{background:var(--accent);color:white}
+    .btn-outline{border:1px solid #e5e7eb;color:#111827;background:white}
+
+    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* small helper for download CV */
+    .download{display:inline-flex;gap:8px;align-items:center}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">HK</div>
+      <div>
+        <h1><!-- EDIT ME: Your full name -->Heidy Karina Rivera Alvarenga</h1>
+        <div class="meta"><!-- EDIT ME: Short job title/summary -->Customer Service & Hospitality | Bilingual Support (ES/EN)</div>
+        <p class="lead">Early-career professional with experience in beauty services, basic social media marketing, and bilingual customer service in Spanish and English, both on land and at sea.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- MAIN COLUMN -->
+      <main>
+        <section class="card section">
+          <h2>About me</h2>
+          <p class="meta">I completed a high school diploma in Science and Humanities in Honduras and a technical program in beauty and cosmetology. Since then, I have worked in a beauty salon and on board a cruise ship, always focused on customer service. I enjoy helping people feel confident, communicating in both Spanish and English, and learning new skills related to digital tools and client experience.</p>
+        </section>
+
+        <section class="card section">
+          <h2>Experience</h2>
+          <div class="experience">
+            <div class="exp-item">
+              <h3>Beauty Stylist & Customer Service — Nefertity Academy Salon</h3>
+              <div class="exp-meta">2022 — 2024 · Cortés, Honduras</div>
+              <div class="exp-desc">Provided beauty and cosmetology services and welcomed clients at the salon. Managed basic social media marketing, including image posts, simple reels, and unpaid promotional content to showcase services and offers.</div>
+            </div>
+
+            <div class="exp-item">
+              <h3>Food Service Crew — Cruise Ship</h3>
+              <div class="exp-meta">8.5-month contract · 2025 · International Waters</div>
+              <div class="exp-desc">Worked in food service with a strong focus on customer service in both English and Spanish. Assisted guests, answered questions about menus, and helped translate menu items and certain services offered by the company for Spanish-speaking passengers.</div>
+            </div>
+
+            <div class="exp-item">
+              <h3>Personal Learning & Projects — Self-directed</h3>
+              <div class="exp-meta">Ongoing · Online</div>
+              <div class="exp-desc">Practicing English, transcription exercises, and basic website creation using HTML to build a simple online portfolio and improve digital skills.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card section">
+          <h2>Education</h2>
+          <p class="meta">High School Diploma in Science and Humanities — Sagrado Corazón de Jesús, Cortés, Honduras · 2020</p>
+          <p class="meta">Technical Program in Beauty and Cosmetology — Nedertity Academy · 2022</p>
+        </section>
+
+        <section class="card section">
+          <h2>Projects & Learning Activities</h2>
+          <ul>
+            <li>Collaborated on basic marketing for Nedertity Academy Salon through image posts, simple reels, and unpaid social media promotions.</li>
+            <li>Created this personal portfolio website using basic HTML and online resources.</li>
+            <li>Completed self-guided transcription and listening exercises in English and Spanish to improve bilingual communication.</li>
+          </ul>
+        </section>
+      </main>
+
+      <!-- SIDEBAR -->
+      <aside>
+        <div class="card section">
+          <h2>Contact</h2>
+          <ul class="contact-list">
+            <li>Email: <!-- EDIT ME -->karinarivera3245@gmail.com</li>
+            <li>Phone: <!-- EDIT ME -->+504 8776 9725</li>
+            <li>Location: <!-- EDIT ME -->Cortes, Honduras</li>
+          </ul>
+
+          <div style="margin-top:12px">
+            <!-- Replace href with link to your PDF CV if you have one -->
+            <!-- Use id instead of inline onclick to avoid "function not defined" errors -->
+            <a id="download-cv-btn" class="btn btn-primary download" href="#">Download CV (PDF)</a>
+          </div>
+        </div>
+
+        <div class="card section">
+          <h2>Skills</h2>
+          <div class="skills">
+            <span class="skill">Customer Service</span>
+            <span class="skill">Beauty & Cosmetology</span>
+            <span class="skill">Social Media Basics</span>
+            <span class="skill">Spanish (Native)</span>
+            <span class="skill">English (Advanced - B2/C1)</span>
+            <span class="skill">Teamwork</span>
+            <span class="skill">Adaptability</span>
+          </div>
+        </div>
+
+        <div class="card section">
+          <h2>Availability</h2>
+          <p class="meta">Weekdays: full time | Weekends: mornings</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      Built with care • Edit this file to personalize your portfolio
+    </footer>
+  </div>
+
+  <script>
+    // Attach event listeners after DOM is ready to prevent "downloadCv is not defined" errors
+    document.addEventListener('DOMContentLoaded', function(){
+      const btn = document.getElementById('download-cv-btn');
+      if(!btn) return;
+
+      // Replace this URL with your actual PDF file hosted online or a relative path to a PDF in the same repo.
+      // Examples:
+      // - Hosted online: 'https://example.com/Heidy_CV.pdf'
+      // - Relative path in same repo: 'Heidy_Rivera_CV.pdf' (if you added the file to your GitHub repo)
+      const demoUrl = 'https://example.com/Heidy_CV.pdf';
+
+      function downloadCv(){
+        // If the demo url is still the placeholder, show helpful instructions
+        if(demoUrl.includes('example.com')){
+          // Show a friendly message explaining how to set up the download
+          alert('To enable the "Download CV" button, upload your CV to your GitHub repository or another host, then replace the demo URL inside the index.html file with the real URL or a relative path to the PDF.');
+          return;
+        }
+
+        // Open the CV in a new tab (or trigger a download depending on server headers)
+        window.open(demoUrl, '_blank');
+      }
+
+      // Use a safe click handler instead of inline onclick attribute
+      btn.addEventListener('click', function(ev){
+        ev.preventDefault();
+        downloadCv();
+      });
+    });
+  </script>
+</body>
+</html>
